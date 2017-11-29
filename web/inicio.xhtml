@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Tienda de libros</title>
+    </h:head>
+    <h:body>
+        <center>  
+            <br/>
+            <h:graphicImage  width="80" height="80" library="images" name="libros.jpg" alt="libros"/>
+            <br/>  
+            <h1>Tienda de libros</h1>   
+            <br/>
+            <h:outputLabel   rendered="#{clienteMB.logged}" value="Usuario: #{clienteMB.nombre} ,         login en #{clienteMB.loginTime}"/>      
+            <br/>    
+            <br/>   
+            <br/>   
+            <h:form>    
+                <h:panelGrid columns="3" cellspacing="30">
+                    <h:graphicImage  width="80" height="80" library="images" name="carrito.jpg" alt="carrito"/>
+                    <h:outputText   value="(#{carroCompraMB.numArticulos} articulos)"  />   
+                    <h:commandLink   rendered="#{!carroCompraMB.vacio}" value="Ver"  action="carroCompra"/>     
+                </h:panelGrid>
+                <br/>  <h:panelGrid columns="4" cellspacing="30">
+                    <h:commandLink  value="Catálogo"  action="listaTemas"/>                         
+                    <h:commandLink rendered="#{clienteMB.logged}" value="Ver pedidos"  action="listaPedidos"/>
+                    <h:commandLink rendered="#{clienteMB.logged}" value="Ver Cuenta"  action="vercuenta"/>
+                    <h:commandLink rendered="#{!clienteMB.logged}" value="Login"  action="login"/>       
+                    <h:commandLink rendered="#{clienteMB.logged}" value="Logout"  action="#{clienteMB.logout()}"/>                     
+                </h:panelGrid>
+            </h:form>
+            <br/>       
+            <i>IST: tienda de libros</i>
+        </center>
+    </h:body>
+</html>
